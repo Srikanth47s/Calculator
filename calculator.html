@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #claculator{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: hsl(0, 0%, 15%);
+            border-radius: 15px;
+            max-width: 400px;
+            overflow: hidden;
+            box-shadow: 3px 3px 5px rgb(53, 37, 53);
+
+        }
+        #display{
+            width: 100%;
+            padding: 20px;
+            font-size: 4rem;
+            color: white;
+            font-weight: bold;
+            text-align: left;
+            border: none;
+            background-color: hsl(0, 0%, 20%);
+            box-shadow: 3px 3px 3px violet;
+            text-shadow: 3px 3px 3px orange;
+        }
+        #keys{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 15px;
+            padding: 25px;
+        }
+    button{
+        width:  70px;
+        height: 70px;
+        border: none;
+        border-radius: 50%;
+        background-color: rgba(56, 55, 55, 0.678);
+        color: white;
+        font-weight: bold;
+        font-size: 2em;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 3px 3px 3px violet;
+        transition: 0.3s ease;
+
+    }
+
+    .splbtn{
+        background-color: hsl(29, 76%, 47%);
+    }
+    .splbtn:hover{
+        background-color:  hsl(29, 100%, 52%);
+        border: 4px solid white;
+        outline: 3.5px solid orange;
+        /* width: 75px;
+        height: 75px; */
+    }
+
+    button:hover{
+        background-color: rgba(20, 19, 19, 0.678);
+        border: 4px solid white;
+        outline: 3.5px solid orange;
+        /* width: 75px;
+        height: 75px; */
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div id="claculator">
+        <input type="text" id="display">
+        <div id="keys">
+        <button onclick="appendDisplay('+')" class="splbtn">+</button>
+        <button onclick="appendDisplay('7')">7</button>
+        <button onclick="appendDisplay('8')">8</button>
+        <button onclick="appendDisplay('9')">9</button>
+        <button onclick="appendDisplay('-')" class="splbtn">-</button>
+        <button onclick="appendDisplay('4')">4</button>
+        <button onclick="appendDisplay('5')">5</button>
+        <button onclick="appendDisplay('6')">6</button>
+        <button onclick="appendDisplay('*')" class="splbtn">*</button>
+        <button onclick="appendDisplay('1')">1</button>
+        <button onclick="appendDisplay('2')">2</button>
+        <button onclick="appendDisplay('3')">3</button>
+        <button onclick="appendDisplay('/')" class="splbtn">/</button>
+        <button onclick="appendDisplay('0')">0</button>
+        <button onclick="appendDisplay('00')">00</button>
+        <button onclick="appendDisplay('.')">.</button>
+        <button onclick="appendDisplay('%')" class="splbtn">%</button>
+        <button onclick="caluculate()" class="splbtn">=</button>
+        <button onclick="clearDispaly()" class="splbtn">C</button>
+        
+        </div>
+
+    </div>
+    <script>
+        const dispiay =  document.getElementById("display");
+ 
+        function appendDisplay(input){
+              dispiay.value += input;
+        }
+
+        function clearDispaly(){
+            dispiay.value = "";
+        }
+
+        function caluculate(){
+            try{
+                dispiay.value = eval(dispiay.value);
+            }catch(error){
+                dispiay.value = "Error";
+            }
+           
+        }
+
+    </script>
+
+</body>
+
+</html>
